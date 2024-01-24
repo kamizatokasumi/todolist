@@ -47,7 +47,7 @@ class TodoController extends Controller
     /**
      * 編集画面の表示
      */
-    public function edit(string $id)
+    public function edit($id)
     {
         $todo = todo::find($id);
         return view('todos.edit', compact('todo'));
@@ -56,13 +56,11 @@ class TodoController extends Controller
     /**
      * 更新処理
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         todo::where('id', $id)->update([
             "title" => $request->title,
             "description" => $request->description,
-            "status" => $request->status,
-            "limit_at" => $request->limit_at
         ]);
         return redirect()->route('todos.index', $id);
     }
