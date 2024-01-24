@@ -27,6 +27,7 @@
                                     <a href="{{ route('todos.index')}} " class="btn btn-secondary">一覧へ戻る</a>
                                 </div>
                             </div>
+                        </form>
                     </div>
                 </div>
             </div>

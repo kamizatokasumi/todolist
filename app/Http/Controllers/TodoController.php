@@ -47,7 +47,7 @@ class TodoController extends Controller
     /**
      * 編集画面の表示
      */
-    public function edit($id)
+    public function edit(string $id)
     {
         $todo = todo::find($id);
         return view('todos.edit', compact('todo'));
@@ -56,11 +56,15 @@ class TodoController extends Controller
     /**
      * 更新処理
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
-        $todo = todo::find($id);
-        $updateTodo = $this->book->updateTodo($request, $todo);
-        return redirect()->route('todos.index');
+        todo::where('id', $id)->update([
+            "title" => $request->title,
+            "description" => $request->description,
+            "status" => $request->status,
+            "limit_at" => $request->limit_at
+        ]);
+        return redirect()->route('todos.index', $id);
     }
 
     /**
@@ -68,8 +72,8 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        // Booksテーブルから指定のIDのレコード1件を取得
-        $destroy = todos::find($id);
+        // todoテーブルから指定のIDのレコード1件を取得
+        $destroy = todo::find($id);
         // レコードを削除
         $destroy->delete();
         // 削除したら一覧画面にリダイレクト

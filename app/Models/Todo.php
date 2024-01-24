@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Todo extends Model
 {
     use HasFactory;
+    
     // 登録・更新可能なカラムの指定
     protected $fillable = [
         'id',
