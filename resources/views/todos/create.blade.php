@@ -22,6 +22,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-10">
+                                    @csrf
                                     <button type="submit" class="btn btn-primary" class="btn btn-primary">保存</button>
                                     <a href="{{ route('todos.index')}} " class="btn btn-secondary">一覧へ戻る</a>
                                 </div>
