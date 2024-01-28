@@ -28,8 +28,13 @@ class TodoController extends Controller
     /**
      * 登録処理
      */
-    public function store(TodoRequest $request)
+    public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|min:3',
+            'description' => 'required',
+        ]);
+
         todo::create($request->all());
         \Session::flash('err_msg', 'ブログ登録しました');
         return redirect()->route('todos.index');

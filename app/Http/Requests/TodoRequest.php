@@ -24,8 +24,9 @@ class TodoRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required | max:20',
-            'description' => 'required'
+            'title' => 'required|max:15',
+            'statues' => 'required',
+            'description' => 'required|max:140',
         ];
     }
 }

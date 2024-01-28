@@ -29,7 +29,7 @@ Route::get('/edit/{id}', [TodoController::class, 'edit'])->name('todos.edit');
 Route::post('/update/{id}', [TodoController::class, 'update'])->name('todos.update');
 // 本の削除
 Route::post('/destroy{id}', [TodoController::class, 'destroy'])->name('todos.destroy');
-
+// ログイン
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
 

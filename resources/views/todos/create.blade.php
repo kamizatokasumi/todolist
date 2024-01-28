@@ -9,17 +9,25 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route ('todos.store')}}">
                             <div class="form-group row">
-                            <label for="inputTitle" class="col-sm-2 col-form-label">Todo</label>
+                            <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
                                 <div class="col-sm-10">
                                 <input type="text" name="title" class="form-control" id="inputTitle">
+                                    @error('title')
+                                    <div class="error">{{ $message }}</div>
+                                    @enderror
                                 </div>
+
                             </div>
                             <div class="form-group row">
-                                <label for="inputDescription" class="col-sm-2 col-form-label">詳細</label>
+                                <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
                                 <div class="col-sm-10">
                                 <input type="text" name="description" class="form-control" id="inputDescription">
+                                    @error('description')
+                                    <div class="error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
+
                             <div class="form-group row">
                                 <div class="col-sm-10">
                                     @csrf

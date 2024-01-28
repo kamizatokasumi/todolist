@@ -16,6 +16,7 @@
                                     <th>ID</th>
                                     <th>title</th>
                                     <th>作成日</th>
+                                    <th>更新日</th>
                                     <th>詳細</th>
                                     <th>編集</th>
                                     <th>削除</th>
@@ -26,6 +27,7 @@
                                 <td> {{ $todos->id }} </td>
                                 <td>{{ $todos->title }}</td>
                                 <td>{{ $todos->created_at }}</td>
+                                <td>{{ $todos->updated_at }}</td>
                                 <td><a href="{{ route('todos.show',['id'=>$todos->id]) }}" class="btn btn-primary">詳細</a></td>
                                 <td><a href="{{ route('todos.edit', ['id'=>$todos->id]) }}" class="btn btn-primary">編集</a></td>
                                 <td>

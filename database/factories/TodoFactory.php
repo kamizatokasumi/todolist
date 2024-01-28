@@ -17,7 +17,7 @@ class TodoFactory extends Factory
     {
         return [
             'title' => $this->faker->word(),
-            'url' => $this->faker->url(),
+            'status' => $this->faker->word(),
             'description' => $this->faker->realText(),
         ];
     }
